@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Caso real — Sistema de Designaciones Multimedia SPLN | IA para Iglesias</title>
+<meta name="description" content="Caso real en producción desde 2026: cómo automatizamos las designaciones multimedia de la Iglesia Sanidad Para Las Naciones (Olavarría) y pasamos de 2 horas semanales a 5 minutos.">
+<link rel="canonical" href="https://axelitoteca.github.io/ia-para-iglesias/casos/spln-multimedia.html">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://axelitoteca.github.io/ia-para-iglesias/casos/spln-multimedia.html">
+<meta property="og:title" content="Caso real — Sistema de Designaciones SPLN">
+<meta property="og:description" content="De 2 horas a 5 minutos semanales coordinando equipo multimedia. Stack: Python + JSON + GitHub Pages. Costo USD 0 de hosting.">
+<meta property="og:image" content="https://axelitoteca.github.io/ia-para-iglesias/og-image.svg">
+
+<meta name="theme-color" content="#101F92">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23101F92'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='62' font-weight='700' text-anchor='middle' fill='%23FAFAF7'%3EA%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Sistema de Designaciones Multimedia SPLN — caso real en producción",
+  "description": "Automatización del equipo multimedia de la Iglesia Sanidad Para Las Naciones (Olavarría). De 2 horas a 5 minutos semanales.",
+  "datePublished": "2026-05-13",
+  "author": {
+    "@type": "Person",
+    "name": "Axel Bardey"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Axel Bardey"
+  }
+}
+</script>
+
+<style>
+:root {
+  --bg: #FAFAF7;
+  --surface: #FFFFFF;
+  --ink: #0F0F14;
+  --ink-muted: #4A4A55;
+  --primary: #101F92;
+  --primary-deep: #0A1860;
+  --primary-darkest: #1A0E3D;
+  --accent: #9A2034;
+  --accent-hover: #B8253D;
+  --success: #2DD4BF;
+  --border: #E8E6DD;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.65;
+  font-size: 17px;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+h1, h2, h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  letter-spacing: -0.02em;
+}
+
+header.hero {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-deep) 60%, var(--primary-darkest) 100%);
+  color: var(--bg);
+  padding: 24px 0 80px;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0 40px;
+  font-size: 15px;
+}
+nav a { color: rgba(250,250,247,0.85); text-decoration: none; }
+nav a:hover { opacity: 1; color: var(--bg); }
+.brand { font-family: 'Fraunces', serif; font-weight: 700; font-size: 19px; color: var(--bg); }
+.brand-dot { color: var(--success); }
+.eyebrow {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(45, 212, 191, 0.12);
+  border: 1px solid rgba(45, 212, 191, 0.25);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--success);
+  margin-bottom: 24px;
+}
+h1 {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 600;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  color: var(--bg);
+}
+.meta {
+  color: rgba(250, 250, 247, 0.7);
+  font-size: 15px;
+}
+
+article { padding: 64px 0 96px; background: var(--bg); }
+article h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 48px 0 16px;
+  color: var(--primary);
+}
+article h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 24px 0 8px;
+}
+article p { margin-bottom: 16px; }
+article ul, article ol { margin: 0 0 16px 24px; }
+article li { margin-bottom: 6px; }
+article a { color: var(--primary); font-weight: 600; }
+article a:hover { color: var(--accent); }
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin: 32px 0;
+}
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+.stat-num {
+  font-family: 'Fraunces', serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.stat-label { font-size: 13px; color: var(--ink-muted); }
+
+.stack {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin: 32px 0;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 14px;
+}
+.stack-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+blockquote {
+  background: var(--surface);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: var(--ink-muted);
+}
+
+.cta-section {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-deep) 100%);
+  color: var(--bg);
+  padding: 80px 0;
+  text-align: center;
+}
+.cta-section h2 {
+  color: var(--bg);
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+.cta-section p { color: rgba(250, 250, 247, 0.85); margin-bottom: 32px; max-width: 50ch; margin-left: auto; margin-right: auto; }
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px;
+}
+.btn-primary { background: var(--accent); color: var(--bg); }
+.btn-primary:hover { background: var(--accent-hover); }
+.btn-secondary {
+  background: transparent;
+  color: var(--bg);
+  border: 1.5px solid rgba(250, 250, 247, 0.3);
+}
+
+footer {
+  background: var(--ink);
+  color: rgba(250,250,247,0.65);
+  padding: 32px 0;
+  text-align: center;
+  font-size: 14px;
+}
+footer a { color: var(--success); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="container">
+    <nav>
+      <a href="../" class="brand">Axel<span class="brand-dot">.</span>Bardey</a>
+      <a href="../#servicios">← Volver a servicios</a>
+    </nav>
+    <span class="eyebrow">CASO REAL · EN PRODUCCIÓN</span>
+    <h1>De 2 horas semanales a 5 minutos: cómo automatizamos las designaciones del equipo multimedia de SPLN</h1>
+    <div class="meta">Iglesia Sanidad Para Las Naciones · Olavarría, Argentina · Deployed 2026 · USD 0 hosting</div>
+  </div>
+</header>
+
+<article>
+  <div class="container">
+
+<h2>El problema</h2>
+
+<p>SPLN tiene un equipo multimedia de 8 personas que rota cada domingo y jueves entre cuatro puestos: sonido, proyección Holyrics, cámaras y streaming. La planilla semanal de quién hacía qué la armaba el responsable del equipo cada jueves, la mandaba por WhatsApp, y empezaba la danza:</p>
+
+<ul>
+  <li>La mitad del equipo no leía el mensaje hasta el sábado por la tarde</li>
+  <li>Algunos confirmaban con emoji, otros no respondían nada</li>
+  <li>El domingo a las 9 AM había siempre alguien que faltaba y nadie sabía quién iba a cubrirlo</li>
+  <li>Las cargas estaban desbalanceadas: dos personas servían todos los domingos y otras cuatro casi nunca</li>
+  <li>El responsable del equipo no tenía visibilidad de quién estaba sobrecargado</li>
+</ul>
+
+<p>Llevaba <strong>2 horas semanales</strong> sólo coordinando esto. Sin contar el estrés del domingo a la mañana cuando faltaba alguien.</p>
+
+<h2>Qué construí</h2>
+
+<p>Un sistema simple basado en un solo archivo JSON como source of truth, renderizado a HTML estático servido desde GitHub Pages. Sin base de datos, sin servidor backend, sin contraseñas, sin app móvil.</p>
+
+<div class="stack">
+<div class="stack-title">Stack técnico</div>
+Python 3.12 · JSON como single source of truth · HTML estático · GitHub Pages (hosting gratis) · GitHub Actions (deploy auto) · Tablas auto-calculadas con estadísticas de carga
+</div>
+
+<h3>Flujo del sistema</h3>
+
+<ol>
+  <li><strong>Datos</strong>: cada domingo/jueves es un objeto en <code>data.json</code> con los 4 puestos asignados a personas</li>
+  <li><strong>Validación</strong>: el script verifica que cada persona aparezca en el rol que tiene capacitación (no asignamos cámara a alguien que solo sabe sonido)</li>
+  <li><strong>Balance</strong>: calcula automáticamente cuántos turnos lleva cada persona en el mes/trimestre, marca sobrecarga (≥5) y subcarga (≤1)</li>
+  <li><strong>Render</strong>: <code>generate.py</code> produce <code>index.html</code> con tablas, estadísticas y vista pública</li>
+  <li><strong>Deploy</strong>: <code>actualizar.bat</code> commitea + pushea + GitHub Pages publica en menos de 30 segundos</li>
+</ol>
+
+<h2>Resultados después de 6 meses en producción</h2>
+
+<div class="stats-grid">
+  <div class="stat">
+    <div class="stat-num">2h → 5min</div>
+    <div class="stat-label">tiempo de coordinación semanal</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">designaciones olvidadas desde el deploy</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">100%</div>
+    <div class="stat-label">pública — cada miembro ve su turno sin pedir</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">USD 0</div>
+    <div class="stat-label">de hosting mensual (GitHub Pages free)</div>
+  </div>
+</div>
+
+<h3>Impactos pastorales que no esperaba</h3>
+
+<p>Cuando armé el sistema pensaba sólo en eficiencia. Pero pasaron tres cosas que no había anticipado:</p>
+
+<ul>
+  <li><strong>El responsable del equipo recuperó 2 horas semanales</strong> que ahora usa para discipular a los nuevos servidores en lugar de armar planillas</li>
+  <li><strong>El equipo dejó de pelearse</strong> por quién había servido más veces — los números están públicos y son auto-evidentes</li>
+  <li><strong>Bajó el estrés del domingo</strong>: el responsable llega sabiendo que todos saben qué les toca, sin preguntar 14 veces "¿venís?"</li>
+</ul>
+
+<h2>Lo que NO funcionó (lección honesta)</h2>
+
+<p>Las primeras dos versiones del sistema tenían los stats "manuales" — yo los calculaba y los hardcodeaba en el JSON. Resultado: se desactualizaban, alguien metía un cambio en <code>dias[]</code> sin actualizar <code>meta.stats</code>, y las estadísticas mostradas no coincidían con la realidad.</p>
+
+<p>Lo arreglé el 11/05/2026 haciendo que los stats y <code>turnos_por_persona</code> se calculen AUTOMÁTICAMENTE desde <code>dias[]</code> en tiempo de render. Single source of truth real. Lección: si tenés dos fuentes para el mismo dato, eventualmente se contradicen.</p>
+
+<h2>Por qué este caso te sirve</h2>
+
+<p>Si tu iglesia tiene equipo multimedia, sonido, cámaras o proyección, probablemente estás viviendo exactamente este problema. El sistema es replicable a tu congregación en <strong>1 semana</strong>:</p>
+
+<ul>
+  <li>Te lo monto adaptado al equipo y servicios de tu iglesia</li>
+  <li>Te capacito al responsable para mantenerlo solo</li>
+  <li>Te dejo el código en tu propio repo GitHub (vos sos dueño, no yo)</li>
+  <li>El hosting sigue siendo USD 0 (GitHub Pages free para siempre)</li>
+</ul>
+
+<blockquote>
+"Antes del sistema, los jueves me iba a dormir pensando si iba a faltar alguien el domingo. Después del sistema, los jueves me ocupo de discipular a los chicos nuevos. El sistema cuida lo que el sistema puede cuidar, y yo cuido lo que solo el ministerio puede cuidar."
+</blockquote>
+
+<p style="color: var(--ink-muted); font-size: 14px;">— Responsable del equipo multimedia, SPLN Olavarría</p>
+
+<h2>Stack y precio para replicarlo en tu iglesia</h2>
+
+<p><strong>Servicio:</strong> Fix técnico — Sistema de designaciones automatizado</p>
+<p><strong>Tiempo de entrega:</strong> 5-7 días desde recibir accesos</p>
+<p><strong>Inversión:</strong> USD 250-400 (depende del tamaño del equipo y la complejidad de los servicios)</p>
+<p><strong>Incluye:</strong> instalación + capacitación al responsable + código entregado en tu repo + 14 días de garantía</p>
+<p><strong>Opcional:</strong> mantenimiento mensual USD 80-150/mes si querés que monitoree uptime y ajustes</p>
+
+<p><a href="../#contacto">Hablamos por DM →</a></p>
+
+  </div>
+</article>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>¿Tu iglesia tiene el mismo problema?</h2>
+    <p>Si el equipo multimedia se quema cada semana, hay solución. La auditoría inicial es USD 80 y la coordinamos esta semana.</p>
+    <a href="https://www.instagram.com/axel_bardey/" target="_blank" rel="noopener" class="btn btn-primary">Escribime por Instagram →</a>
+    <a href="../" class="btn btn-secondary">Ver todos los servicios</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © 2026 Axel Bardey · <a href="https://github.com/Axelitoteca/ia-para-iglesias" target="_blank" rel="noopener">Código del sitio</a> · <a href="../">Volver</a>
+  </div>
+</footer>
+
+</body>
+</html>
