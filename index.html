@@ -3,244 +3,811 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Servicios técnicos para iglesias hispanas — auditorías web/RRSS, automatizaciones con IA, setup completo. Stack Claude Code + Playwright + n8n.">
-<title>IA para Iglesias — Servicios técnicos para ministerios hispanos</title>
+
+<title>IA para Iglesias — Servicios técnicos para ministerios hispanos | Axel Bardey</title>
+<meta name="description" content="Auditoría, fix técnico y automatización con IA para iglesias hispanas y pymes. Soy dev Python y predicador en Olavarría. Entregables one-shot, sin contratos anuales, desde USD 80.">
+<meta name="author" content="Axel Bardey">
+<meta name="keywords" content="IA para iglesias, automatización iglesia, agencia IA iglesias hispanas, tecnología pastoral, claude code argentina, asistente IA ministerio, página web iglesia, streaming iglesia">
+<link rel="canonical" href="https://axelitoteca.github.io/ia-para-iglesias/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://axelitoteca.github.io/ia-para-iglesias/">
+<meta property="og:title" content="IA para Iglesias — Servicios técnicos para ministerios hispanos">
+<meta property="og:description" content="Alguien tiene que arreglar lo técnico de tu iglesia. Que sea alguien que también predica. Auditoría desde USD 80.">
+<meta property="og:image" content="https://axelitoteca.github.io/ia-para-iglesias/og-image.png">
+<meta property="og:locale" content="es_AR">
+<meta property="og:site_name" content="IA para Iglesias">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="IA para Iglesias — Axel Bardey">
+<meta name="twitter:description" content="Dev Python + predicador. Servicios técnicos one-shot para iglesias hispanas. Desde USD 80.">
+<meta name="twitter:image" content="https://axelitoteca.github.io/ia-para-iglesias/og-image.png">
+
+<meta name="theme-color" content="#101F92">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23101F92'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='62' font-weight='700' text-anchor='middle' fill='%23FAFAF7'%3EA%3C/text%3E%3C/svg%3E">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://axelitoteca.github.io/ia-para-iglesias/#axel",
+      "name": "Axel Bardey",
+      "givenName": "Axel",
+      "familyName": "Bardey",
+      "jobTitle": "Desarrollador Python · Predicador",
+      "description": "Dev Python y predicador en Iglesia Sanidad Para Las Naciones (Olavarría, Argentina). Servicios técnicos para iglesias hispanas y pymes.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Olavarría",
+        "addressRegion": "Buenos Aires",
+        "addressCountry": "AR"
+      },
+      "sameAs": [
+        "https://www.instagram.com/axel_bardey/",
+        "https://github.com/Axelitoteca"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://axelitoteca.github.io/ia-para-iglesias/#service",
+      "name": "IA para Iglesias",
+      "url": "https://axelitoteca.github.io/ia-para-iglesias/",
+      "description": "Auditoría técnica, fix técnico y setup de IA para iglesias hispanas y pymes. Entregables one-shot desde USD 80.",
+      "provider": { "@id": "https://axelitoteca.github.io/ia-para-iglesias/#axel" },
+      "areaServed": [
+        {"@type": "Country", "name": "Argentina"},
+        {"@type": "Place", "name": "Latinoamérica hispanohablante"}
+      ],
+      "priceRange": "USD 80–800",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios técnicos para iglesias",
+        "itemListElement": [
+          {"@type": "Offer", "name": "Auditoría técnica", "price": "80", "priceCurrency": "USD", "description": "Análisis de web, Instagram, Facebook + reporte PDF + videollamada 30 min."},
+          {"@type": "Offer", "name": "Fix técnico", "priceSpecification": {"@type": "PriceSpecification", "minPrice": "150", "maxPrice": "300", "priceCurrency": "USD"}, "description": "Web nueva o reparada, streaming OBS, bot Telegram, designaciones automatizadas."},
+          {"@type": "Offer", "name": "Setup IA completo", "priceSpecification": {"@type": "PriceSpecification", "minPrice": "400", "maxPrice": "800", "priceCurrency": "USD"}, "description": "Generación de contenido con IA, automatización de redes, bot pastoral, capacitación del equipo."}
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "¿Para qué tamaño de iglesia funciona esto?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Iglesias de 50 a 300 personas. Si tu congregación es más grande, te puedo recomendar a quién consultar."}},
+        {"@type": "Question", "name": "¿Trabajás solo con iglesias o también con pymes?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Las dos. La metodología es la misma: identifico el problema técnico, lo soluciono, te entrego el resultado funcionando."}},
+        {"@type": "Question", "name": "¿Cobrás con contrato anual o por trabajo?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Solo por trabajo. Cada servicio es one-shot. Si después necesitás más cosas, las cotizamos por separado."}},
+        {"@type": "Question", "name": "¿Aceptás pago en pesos argentinos?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Sí. Pesos, dólares MEP, USDT o transferencia internacional. El precio publicado es referencia USD."}},
+        {"@type": "Question", "name": "¿Cuánto tarda una auditoría?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Entre 48 y 72 horas desde que me pasás los accesos. La videollamada la coordinamos para esa misma semana."}}
+      ]
+    }
+  ]
+}
+</script>
+
 <style>
 :root {
-  --cobalto: #101F92;
-  --marino: #0A1860;
-  --granate: #9A2034;
-  --aqua: #2DD4BF;
-  --cream: #FAF7F0;
-  --tinta: #1A1A1A;
-  --gris: #6B7280;
-  --gris-claro: #E5E7EB;
+  --bg: #FAFAF7;
+  --surface: #FFFFFF;
+  --ink: #0F0F14;
+  --ink-muted: #4A4A55;
+  --primary: #101F92;
+  --primary-deep: #0A1860;
+  --primary-darkest: #1A0E3D;
+  --accent: #9A2034;
+  --accent-hover: #B8253D;
+  --success: #2DD4BF;
+  --border: #E8E6DD;
+  --shadow-sm: 0 1px 2px rgba(15, 15, 20, 0.04);
+  --shadow-md: 0 8px 24px rgba(15, 15, 20, 0.08);
 }
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background: var(--cream);
-  color: var(--tinta);
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
   line-height: 1.6;
   font-size: 17px;
+  font-feature-settings: "cv11", "ss01", "ss03";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-.container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
-header {
-  background: var(--cobalto);
-  color: var(--cream);
-  padding: 80px 0 100px;
+h1, h2, h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-variation-settings: "opsz" 60;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+/* ============ HERO ============ */
+header.hero {
+  background:
+    linear-gradient(135deg, var(--primary) 0%, var(--primary-deep) 60%, var(--primary-darkest) 100%);
+  color: var(--bg);
+  padding: 24px 0 120px;
   position: relative;
   overflow: hidden;
+  isolation: isolate;
 }
-header::before {
+header.hero::before {
   content: "";
   position: absolute;
-  top: -50%;
-  right: -10%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, var(--aqua) 0%, transparent 70%);
-  opacity: 0.15;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  background-position: 0 0;
+  z-index: -1;
+  mask-image: radial-gradient(ellipse at center top, black 30%, transparent 80%);
+}
+header.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  opacity: 0.04;
+  z-index: -1;
   pointer-events: none;
 }
-.brand { font-weight: 800; font-size: 20px; letter-spacing: -0.02em; margin-bottom: 60px; opacity: 0.9; }
-h1 {
-  font-size: clamp(36px, 5vw, 64px);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  margin-bottom: 24px;
-  max-width: 14ch;
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0 60px;
 }
-h1 .accent { color: var(--aqua); }
-.subtitle {
+.brand {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 19px;
+  letter-spacing: -0.01em;
+}
+.brand-dot { color: var(--success); }
+nav a.nav-link {
+  color: var(--bg);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  opacity: 0.85;
+  transition: opacity 0.15s;
+}
+nav a.nav-link:hover { opacity: 1; }
+
+.hero-content { max-width: 880px; padding: 40px 0; }
+.eyebrow {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(45, 212, 191, 0.12);
+  border: 1px solid rgba(45, 212, 191, 0.25);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--success);
+  letter-spacing: 0.02em;
+  margin-bottom: 28px;
+}
+h1 {
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 600;
+  font-variation-settings: "opsz" 144, "wght" 600;
+  line-height: 1.02;
+  color: var(--bg);
+  margin-bottom: 28px;
+  max-width: 18ch;
+}
+h1 em {
+  font-style: italic;
+  color: var(--success);
+  font-variation-settings: "opsz" 144, "wght" 500;
+}
+.dek {
   font-size: clamp(18px, 2vw, 22px);
   font-weight: 400;
-  max-width: 56ch;
-  opacity: 0.92;
+  font-family: 'Inter', sans-serif;
+  max-width: 60ch;
+  color: rgba(250, 250, 247, 0.88);
+  line-height: 1.55;
   margin-bottom: 40px;
 }
-.cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
+.cta-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
 .btn {
-  display: inline-block;
-  padding: 14px 28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 28px;
   border-radius: 8px;
   font-weight: 600;
   text-decoration: none;
   font-size: 16px;
-  transition: transform 0.15s, opacity 0.15s;
+  font-family: 'Inter', sans-serif;
+  transition: transform 0.15s, background 0.15s, box-shadow 0.15s;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
 }
-.btn:hover { transform: translateY(-1px); }
-.btn-primary { background: var(--aqua); color: var(--marino); }
-.btn-secondary { background: transparent; color: var(--cream); border: 1.5px solid var(--cream); }
+.btn-primary {
+  background: var(--accent);
+  color: var(--bg);
+  box-shadow: 0 4px 14px rgba(154, 32, 52, 0.35);
+}
+.btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(154, 32, 52, 0.45); }
+.btn-secondary {
+  background: transparent;
+  color: var(--bg);
+  border: 1.5px solid rgba(250, 250, 247, 0.3);
+}
+.btn-secondary:hover { background: rgba(250, 250, 247, 0.06); border-color: rgba(250, 250, 247, 0.5); }
+.btn-arrow { font-size: 18px; line-height: 1; }
 
-section { padding: 80px 0; }
+.hero-meta {
+  display: flex;
+  gap: 32px;
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(250, 250, 247, 0.12);
+  font-size: 14px;
+  color: rgba(250, 250, 247, 0.7);
+  flex-wrap: wrap;
+}
+.hero-meta strong { color: var(--bg); font-weight: 600; }
+
+/* ============ SECTIONS ============ */
+section { padding: 96px 0; }
 section h2 {
-  font-size: clamp(28px, 3.5vw, 40px);
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 600;
+  font-variation-settings: "opsz" 144, "wght" 600;
+  line-height: 1.1;
   margin-bottom: 16px;
-  color: var(--cobalto);
+  max-width: 20ch;
 }
-section .lead { color: var(--gris); margin-bottom: 48px; max-width: 60ch; }
+section .section-lead {
+  color: var(--ink-muted);
+  font-size: 19px;
+  max-width: 62ch;
+  margin-bottom: 56px;
+}
 
-.servicios { background: white; }
-.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+/* ============ PROBLEMA ============ */
+.problema { background: var(--bg); }
+.problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; }
+.problem-item h3 {
+  font-size: 22px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.problem-item p { color: var(--ink-muted); font-size: 16px; }
+
+/* ============ SERVICIOS ============ */
+.servicios { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 24px; }
 .card {
-  background: var(--cream);
-  border: 1px solid var(--gris-claro);
-  border-radius: 12px;
-  padding: 32px;
-  transition: border-color 0.2s, transform 0.2s;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 36px 32px;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  position: relative;
 }
-.card:hover { border-color: var(--cobalto); transform: translateY(-2px); }
-.card h3 { font-size: 22px; font-weight: 700; margin-bottom: 12px; color: var(--cobalto); }
-.card .price { font-size: 28px; font-weight: 800; color: var(--granate); margin-bottom: 16px; }
-.card .price small { font-size: 14px; font-weight: 500; color: var(--gris); }
+.card:hover { border-color: var(--primary); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.card.featured { border: 1.5px solid var(--primary); position: relative; }
+.card.featured::before {
+  content: "Más pedido";
+  position: absolute;
+  top: -12px;
+  left: 24px;
+  background: var(--primary);
+  color: var(--bg);
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 100px;
+  letter-spacing: 0.02em;
+}
+.card h3 {
+  font-size: 24px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+.card .price {
+  font-family: 'Fraunces', serif;
+  font-size: 38px;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 16px 0 20px;
+  line-height: 1;
+}
+.card .price small {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-muted);
+}
+.card .summary { font-size: 15px; color: var(--ink-muted); margin-bottom: 20px; min-height: 48px; }
 .card ul { list-style: none; }
-.card li { padding: 8px 0; padding-left: 24px; position: relative; font-size: 15px; }
-.card li::before { content: "✓"; position: absolute; left: 0; color: var(--aqua); font-weight: 700; }
+.card li {
+  padding: 7px 0;
+  padding-left: 28px;
+  position: relative;
+  font-size: 15px;
+  color: var(--ink);
+}
+.card li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 13px;
+  width: 16px;
+  height: 16px;
+  background: var(--success);
+  mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 8.5l3.5 3.5L13 4.5' stroke='black' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / contain;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 8.5l3.5 3.5L13 4.5' stroke='black' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / contain;
+}
 
-.portfolio { background: var(--cream); }
+/* ============ PROCESO ============ */
+.proceso { background: var(--bg); }
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; counter-reset: step; }
+.step { counter-increment: step; }
+.step-num {
+  font-family: 'Fraunces', serif;
+  font-size: 56px;
+  font-weight: 500;
+  color: var(--primary);
+  opacity: 0.18;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.step-num::before { content: "0" counter(step); }
+.step h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.step p { color: var(--ink-muted); font-size: 15px; }
+
+/* ============ CASO REAL ============ */
+.caso { background: var(--surface); border-top: 1px solid var(--border); }
 .case-card {
-  background: white;
+  background: var(--bg);
+  border-radius: 16px;
+  padding: 48px;
+  border: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+@media (max-width: 780px) { .case-card { grid-template-columns: 1fr; padding: 32px; } }
+.case-card h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+.case-card .meta {
+  font-size: 14px;
+  color: var(--ink-muted);
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+.case-card p { margin-bottom: 14px; color: var(--ink); }
+.case-card a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 8px;
+  border-bottom: 1.5px solid var(--primary);
+  padding-bottom: 2px;
+}
+.case-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.stat { background: var(--surface); padding: 24px; border-radius: 12px; border: 1px solid var(--border); }
+.stat-num {
+  font-family: 'Fraunces', serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1;
+}
+.stat-label { font-size: 13px; color: var(--ink-muted); margin-top: 6px; }
+
+/* ============ QUIÉN SOY ============ */
+.about { background: var(--bg); }
+.about-grid { display: grid; grid-template-columns: 1fr 1.8fr; gap: 64px; align-items: start; }
+@media (max-width: 780px) { .about-grid { grid-template-columns: 1fr; gap: 32px; } }
+.about-sidebar {
+  background: var(--surface);
+  padding: 32px;
   border-radius: 12px;
-  padding: 40px;
-  border-left: 4px solid var(--cobalto);
+  border: 1px solid var(--border);
 }
-.case-card h3 { font-size: 24px; color: var(--cobalto); margin-bottom: 8px; }
-.case-card .meta { font-size: 14px; color: var(--gris); margin-bottom: 20px; }
-.case-card p { margin-bottom: 12px; }
-.case-card a { color: var(--cobalto); font-weight: 600; }
+.about-sidebar h4 {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--primary);
+}
+.about-sidebar p { font-size: 14px; color: var(--ink-muted); margin-bottom: 4px; }
+.about p { margin-bottom: 18px; font-size: 17px; }
 
-.about { background: white; }
-.about-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 48px; align-items: start; }
-@media (max-width: 720px) { .about-grid { grid-template-columns: 1fr; } }
-.about p { margin-bottom: 16px; }
+/* ============ FAQ ============ */
+.faq { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.faq-grid { display: grid; gap: 16px; max-width: 800px; }
+.faq-item {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 28px;
+}
+.faq-item summary {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  padding-right: 32px;
+  color: var(--ink);
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: -2px;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--primary);
+  transition: transform 0.2s;
+}
+.faq-item[open] summary::after { content: "−"; }
+.faq-item p { margin-top: 14px; color: var(--ink-muted); font-size: 16px; }
 
-.contacto {
-  background: var(--cobalto);
-  color: var(--cream);
+/* ============ CONTACTO FINAL ============ */
+.contacto-final {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-deep) 100%);
+  color: var(--bg);
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
-.contacto h2 { color: var(--cream); }
-.contacto .lead { color: rgba(250, 247, 240, 0.85); margin-left: auto; margin-right: auto; }
-.contact-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
+.contacto-final::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  pointer-events: none;
+}
+.contacto-final h2 { color: var(--bg); margin-left: auto; margin-right: auto; max-width: 22ch; }
+.contacto-final .closing {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: rgba(250, 250, 247, 0.9);
+  max-width: 50ch;
+  margin: 16px auto 40px;
+  line-height: 1.45;
+}
+.contacto-final .cta-row { justify-content: center; }
 
+/* ============ FOOTER ============ */
 footer {
-  background: var(--marino);
-  color: rgba(250, 247, 240, 0.7);
-  padding: 32px 0;
+  background: var(--ink);
+  color: rgba(250, 250, 247, 0.65);
+  padding: 48px 0 32px;
   text-align: center;
   font-size: 14px;
 }
-footer a { color: var(--aqua); }
+footer .footer-grid { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 24px; margin-bottom: 32px; text-align: left; }
+@media (max-width: 600px) { footer .footer-grid { text-align: center; justify-content: center; } }
+footer h5 {
+  font-family: 'Inter', sans-serif;
+  color: var(--bg);
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+footer a { color: var(--success); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+footer .footer-bottom {
+  padding-top: 24px;
+  border-top: 1px solid rgba(250, 250, 247, 0.1);
+  font-size: 13px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
 </style>
 </head>
 <body>
 
-<header>
+<!-- ============ HERO ============ -->
+<header class="hero">
   <div class="container">
-    <div class="brand">IA para Iglesias</div>
-    <h1>Tu iglesia merece <span class="accent">tecnología que funcione</span>.</h1>
-    <p class="subtitle">Soy Axel, dev argentino + predicador. Ayudo a iglesias hispanas y pymes a usar IA y automatización sin perderse en el marketing del momento — herramientas concretas, entregables claros, sin prosperity gospel.</p>
-    <div class="cta-row">
-      <a href="#servicios" class="btn btn-primary">Ver servicios</a>
-      <a href="#contacto" class="btn btn-secondary">Hablar conmigo</a>
+    <nav>
+      <div class="brand">Axel<span class="brand-dot">.</span>Bardey</div>
+      <div style="display: flex; gap: 28px;">
+        <a href="#servicios" class="nav-link">Servicios</a>
+        <a href="#caso" class="nav-link">Caso real</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </div>
+    </nav>
+
+    <div class="hero-content">
+      <span class="eyebrow">IA + automatización para ministerios hispanos</span>
+      <h1>Alguien tiene que arreglar lo técnico. Que sea <em>alguien que también predica</em>.</h1>
+      <p class="dek">Soy Axel, dev Python y predicador en Olavarría. Trabajo con iglesias de 50 a 300 personas que tienen web rota, redes silenciadas o transmisiones que fallan cada domingo. Identifico el problema, lo soluciono, y te explico qué hiciste bien y qué cambiar.</p>
+      <div class="cta-row">
+        <a href="#servicios" class="btn btn-primary">Ver la auditoría — USD 80 <span class="btn-arrow">→</span></a>
+        <a href="#contacto" class="btn btn-secondary">Contame qué está roto</a>
+      </div>
+      <div class="hero-meta">
+        <div><strong>3 años</strong> en Instituto Bíblico Río de la Plata</div>
+        <div>Iglesia <strong>SPLN</strong> · Asambleas de Dios · Olavarría</div>
+        <div>Stack <strong>Claude · Playwright · n8n · Railway</strong></div>
+      </div>
     </div>
   </div>
 </header>
 
+<!-- ============ PROBLEMA ============ -->
+<section class="problema">
+  <div class="container">
+    <h2>El problema que veo cada semana</h2>
+    <p class="section-lead">Pastores con visión clara y herramientas rotas. Equipos multimedia que improvisan cada domingo. Páginas web que no se actualizan desde 2019. Esto es lo que arreglo.</p>
+    <div class="problem-grid">
+      <div class="problem-item">
+        <h3>Redes sociales en silencio</h3>
+        <p>El Instagram de la iglesia tiene 3 posts del 2022. La gente que busca tu nombre en Google no encuentra ni horarios ni un video. La congregación crece por boca a boca y se estanca ahí.</p>
+      </div>
+      <div class="problem-item">
+        <h3>Streaming que se cae</h3>
+        <p>OBS configurado por alguien que ya no está. Cables que se desenchufan. Cámaras que no enfocan. Cada domingo el técnico improvisa y nadie lo capacitó realmente.</p>
+      </div>
+      <div class="problem-item">
+        <h3>Cero sistemas, todo manual</h3>
+        <p>Designaciones por WhatsApp. Letras impresas a último momento. Anuncios que se olvidan. Todo el ministerio descansa en la memoria de 2 o 3 personas que ya están saturadas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICIOS ============ -->
 <section id="servicios" class="servicios">
   <div class="container">
-    <h2>Servicios</h2>
-    <p class="lead">Entregables one-shot. Pago por trabajo, no por hora ni suscripción.</p>
+    <h2>Tres formas de empezar</h2>
+    <p class="section-lead">One-shot. Pago por trabajo, no por hora. Sin contratos anuales, sin retainer mensual obligatorio, sin reuniones de seguimiento eternas.</p>
     <div class="cards">
+
       <div class="card">
         <h3>Auditoría técnica</h3>
-        <div class="price">USD 80 <small>/ una vez</small></div>
+        <div class="price">USD 80<small> / una vez</small></div>
+        <p class="summary">Te muestro qué está roto y qué arreglar primero. Sin venderte nada más en esa llamada.</p>
         <ul>
-          <li>Análisis de tu web e Instagram</li>
-          <li>Diagnóstico de Facebook/YouTube</li>
-          <li>Plan priorizado de mejoras</li>
-          <li>Reporte PDF + videollamada de 30 min</li>
+          <li>Análisis de web, Instagram y Facebook</li>
+          <li>Revisión de streaming y multimedia</li>
+          <li>Reporte PDF con plan priorizado</li>
+          <li>Videollamada de 30 min para repasar</li>
         </ul>
       </div>
-      <div class="card">
+
+      <div class="card featured">
         <h3>Fix técnico</h3>
         <div class="price">USD 150–300</div>
+        <p class="summary">Yo lo arreglo. Vos lo recibís funcionando, capacitado al técnico de turno.</p>
         <ul>
-          <li>Web nueva o reparada</li>
-          <li>Streaming OBS configurado</li>
-          <li>Bot Telegram de avisos</li>
-          <li>Designaciones automatizadas</li>
+          <li>Web nueva o reparada (GitHub Pages)</li>
+          <li>OBS y streaming estables</li>
+          <li>Bot Telegram de avisos al equipo</li>
+          <li>Sistema de designaciones automatizado</li>
         </ul>
       </div>
+
       <div class="card">
         <h3>Setup IA completo</h3>
         <div class="price">USD 400–800</div>
+        <p class="summary">Para iglesias que ya tienen lo básico funcionando y quieren escalar sin sumar personas.</p>
         <ul>
-          <li>Sistema de generación de contenido</li>
+          <li>Generación de contenido con Claude</li>
           <li>Automatización de redes sociales</li>
-          <li>Bot pastoral (FAQ, agenda, oración)</li>
-          <li>Capacitación del equipo</li>
+          <li>Asistente IA para preguntas pastorales</li>
+          <li>Capacitación al equipo (1.5h grabadas)</li>
         </ul>
       </div>
+
     </div>
   </div>
 </section>
 
-<section class="portfolio">
+<!-- ============ PROCESO ============ -->
+<section class="proceso">
   <div class="container">
-    <h2>Caso real</h2>
-    <p class="lead">Sistema desplegado y en uso en mi iglesia local desde 2026.</p>
-    <div class="case-card">
-      <h3>Sistema de Designaciones Multimedia — SPLN</h3>
-      <div class="meta">Iglesia Sanidad Para Las Naciones · Olavarría · 2026</div>
-      <p>Designaciones automáticas del equipo de sonido, cámaras y proyección para cada domingo y jueves. Single source of truth en JSON, render HTML estático en GitHub Pages, estadísticas auto-calculadas, validación de carga balanceada por persona.</p>
-      <p>Reduce de horas a minutos la coordinación semanal del equipo multimedia. Ahora pública.</p>
-      <p><a href="https://axelitoteca.github.io/spln-multimedia/" target="_blank" rel="noopener">Ver en vivo →</a></p>
+    <h2>Cómo trabajo, en concreto</h2>
+    <p class="section-lead">Sin onboarding de 90 días ni discovery calls infinitas. Esto es lo que pasa desde que me escribís hasta que tenés el trabajo entregado.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num"></div>
+        <h3>Me contás qué pasa</h3>
+        <p>20 minutos por videollamada o por audio de WhatsApp. Sin formulario de 50 campos.</p>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <h3>Te paso la cotización</h3>
+        <p>Precio cerrado en USD, plazo concreto, qué incluye y qué no. Sin letra chica.</p>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <h3>Lo hago</h3>
+        <p>50% al arrancar, 50% al entregar. Te muestro avances reales, no presentaciones bonitas.</p>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <h3>Te lo entrego andando</h3>
+        <p>Capacito a quien lo va a usar. Te dejo documentado todo. Después seguís solo.</p>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- ============ CASO REAL ============ -->
+<section id="caso" class="caso">
+  <div class="container">
+    <h2>Caso real, en producción</h2>
+    <p class="section-lead">Esto está corriendo hoy en mi propia iglesia. Lo replico para vos en una semana.</p>
+    <div class="case-card">
+      <div>
+        <h3>Sistema de Designaciones Multimedia — SPLN</h3>
+        <div class="meta">Iglesia Sanidad Para Las Naciones · Olavarría · 2026</div>
+        <p>Designaciones automáticas del equipo de sonido, cámaras y proyección para cada domingo y jueves. Single source of truth en JSON, render HTML estático en GitHub Pages, estadísticas auto-calculadas, validación de carga por persona.</p>
+        <p>Antes: coordinar el equipo del domingo tomaba 2 horas semanales por WhatsApp. Hoy: 5 minutos.</p>
+        <a href="https://axelitoteca.github.io/spln-multimedia/" target="_blank" rel="noopener">Ver el sistema en vivo →</a>
+      </div>
+      <div class="case-stats">
+        <div class="stat">
+          <div class="stat-num">2h → 5min</div>
+          <div class="stat-label">tiempo de coordinación semanal</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">0</div>
+          <div class="stat-label">designaciones olvidadas desde el deploy</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">público para que cada miembro vea su turno</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">USD 0</div>
+          <div class="stat-label">hosting (GitHub Pages free)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUIÉN SOY ============ -->
 <section class="about">
   <div class="container">
-    <h2>Quién soy</h2>
+    <h2>Quién soy y por qué te conviene</h2>
     <div class="about-grid">
-      <div>
-        <strong>Axel Bardey</strong><br>
-        Olavarría, Buenos Aires<br>
-        Predicador SPLN · 3° año IBRP
-      </div>
-      <div>
-        <p>Soy desarrollador Python desde hace años, predicador en mi iglesia local (Sanidad Para Las Naciones, Asambleas de Dios) y estudiante de tercer año en el Instituto Bíblico Río de la Plata.</p>
-        <p>Conozco las dos veredas: la técnica y la pastoral. Sé lo que necesita una iglesia chica que no tiene equipo IT y al mismo tiempo entiendo el stack moderno (Claude API, Playwright, n8n, Railway, MCPs).</p>
-        <p>No te vendo humo de prosperity gospel ni "haz un curso por USD 997". Te vendo trabajo concreto, terminado, que vos podés sostener después.</p>
+      <aside class="about-sidebar">
+        <h4>Axel Bardey</h4>
+        <p>Olavarría, Buenos Aires</p>
+        <p>Predicador SPLN · Asambleas de Dios</p>
+        <p>3° año Instituto Bíblico Río de la Plata</p>
+        <p style="margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border);"><strong style="color: var(--ink);">Stack técnico:</strong><br>Python · Flask · Claude API · Playwright · n8n · Railway · MCPs · Telegram bots</p>
+      </aside>
+      <div class="about">
+        <p>Soy Axel. Predico los domingos en SPLN, una iglesia pentecostal arminiana en Olavarría. De lunes a viernes escribo código: automatizaciones, bots, integraciones con IA, webs para ministerios.</p>
+        <p>Cuando entro a la web de una iglesia y está rota, no lo veo como un cliente potencial. Lo veo como un problema que puedo solucionar en una tarde.</p>
+        <p>No tengo equipo de ventas, no hay onboarding de 90 días, no te voy a vender un curso de USD 997 antes de hacer el trabajo. Me encargás algo, lo hago, te lo entrego andando. Eso es todo.</p>
+        <p>Si lo que necesitás es alguien que también entienda cómo funciona una iglesia adentro — la dinámica del equipo de sonido, la presión del domingo, el alma del pastor cansado — soy ese tipo.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="contacto" class="contacto">
+<!-- ============ FAQ ============ -->
+<section class="faq">
   <div class="container">
-    <h2>Hablemos</h2>
-    <p class="lead">Si tu iglesia (o pyme) tiene un problema técnico concreto, contame por DM o Telegram. La primera consulta de 20 min es gratis para evaluar si te puedo ayudar.</p>
-    <div class="contact-links">
-      <a href="https://www.instagram.com/axel_bardey/" class="btn btn-primary" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://t.me/axelbardey" class="btn btn-secondary" target="_blank" rel="noopener">Telegram</a>
+    <h2>Preguntas frecuentes</h2>
+    <p class="section-lead">Lo que casi todos los pastores y dueños de pyme me preguntan antes de decidir.</p>
+    <div class="faq-grid">
+      <details class="faq-item">
+        <summary>¿Para qué tamaño de iglesia funciona esto?</summary>
+        <p>Iglesias de 50 a 300 personas. Si tu congregación es más grande, te puedo recomendar a quién consultar — hay equipos especializados que cobran mucho más y los vale.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Trabajás solo con iglesias o también con pymes?</summary>
+        <p>Las dos. La metodología es la misma: identifico el problema técnico concreto, lo soluciono, te entrego el resultado funcionando. Los precios para pyme son similares a los publicados.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cobrás con contrato anual o por trabajo?</summary>
+        <p>Solo por trabajo. Cada servicio es one-shot, sin retainer mensual obligatorio. Si después necesitás más cosas, las cotizamos por separado. Sin lock-in.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Aceptás pago en pesos argentinos?</summary>
+        <p>Sí. Pesos argentinos (transferencia o Mercado Pago), dólares MEP, USDT o transferencia internacional. El precio publicado es referencia USD, lo pasamos a la cotización del día.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cuánto tarda una auditoría?</summary>
+        <p>Entre 48 y 72 horas desde que me pasás los accesos. La videollamada de 30 minutos la coordinamos para esa misma semana, después te queda el reporte PDF para compartir con el equipo.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Y si mi iglesia es muy chica y no tiene presupuesto?</summary>
+        <p>Hablalo conmigo igual. Tengo una cantidad limitada de cupos pro bono al mes para iglesias hermanas con la misma confesión. No prometo siempre poder, pero pregunto siempre.</p>
+      </details>
     </div>
   </div>
 </section>
 
+<!-- ============ CONTACTO FINAL ============ -->
+<section id="contacto" class="contacto-final">
+  <div class="container">
+    <h2>Hablemos sin formularios</h2>
+    <p class="closing">"La tecnología no salva a nadie. Pero sí puede dejar de ser el motivo por el que no te encuentran."</p>
+    <div class="cta-row">
+      <a href="https://www.instagram.com/axel_bardey/" class="btn btn-primary" target="_blank" rel="noopener">Escribime por Instagram <span class="btn-arrow">→</span></a>
+      <a href="https://t.me/axelbardey" class="btn btn-secondary" target="_blank" rel="noopener">Hablemos por Telegram</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
 <footer>
   <div class="container">
-    Axel Bardey · Olavarría, AR · <a href="https://github.com/axelitoteca/ia-para-iglesias" target="_blank" rel="noopener">Código del sitio</a>
+    <div class="footer-grid">
+      <div>
+        <h5>IA para Iglesias</h5>
+        <p>Servicios técnicos para ministerios hispanos. Desde Olavarría, Argentina.</p>
+      </div>
+      <div>
+        <h5>Contacto</h5>
+        <p><a href="https://www.instagram.com/axel_bardey/" target="_blank" rel="noopener">Instagram</a></p>
+        <p><a href="https://t.me/axelbardey" target="_blank" rel="noopener">Telegram</a></p>
+      </div>
+      <div>
+        <h5>Iglesia</h5>
+        <p><a href="https://axelitoteca.github.io/spln-multimedia/" target="_blank" rel="noopener">SPLN Multimedia</a></p>
+        <p><a href="https://axelitoteca.github.io/spln-adolescentes/" target="_blank" rel="noopener">SPLN Adolescentes</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Axel Bardey · <a href="https://github.com/Axelitoteca/ia-para-iglesias" target="_blank" rel="noopener">Código del sitio</a>
+    </div>
   </div>
 </footer>
 

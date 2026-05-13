@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://axelitoteca.github.io/ia-para-iglesias/sitemap.xml
